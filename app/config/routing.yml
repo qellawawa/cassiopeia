@@ -1,0 +1,19 @@
+cassio_eval:
+    resource: "@CassioEvalBundle/Resources/config/routing.yml"
+    prefix:   /
+
+task:
+    path: /task
+    defaults: { _controller: CassioEvalBundle:Default:new }
+
+subir:
+    path: /subir
+    defaults: { _controller: CassioEvalBundle:Default:subir }
+
+upload:
+    path: /upload
+    defaults: { _controller: CassioEvalBundle:Default:upload }
+
+tc:
+    path: /tc
+    defaults: { _controller: CassioEvalBundle:Default:showTC }

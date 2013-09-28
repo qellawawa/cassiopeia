@@ -1,0 +1,42 @@
+<?php
+// src/Cassio/EvalBundle/Entity/TestCase.php
+namespace Cassio\EvalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="TestCase")
+ */
+class TestCase
+{
+  /**
+   * @ORM\Id
+   * @ORM\Column(type="integer")
+   * @ORM\GeneratedValue(strategy="AUTO")
+   */
+  protected $id;
+
+  /**
+   * @ORM\Column(type="integer")
+   */
+  protected $id_problema;
+
+  /**
+   * @ORM\Column(type="string", length=100)
+   */
+  protected $titulo;
+
+   /**
+   * @ORM\Column(type="string", length=300)
+   */
+  protected $entrada;
+
+   /**
+   * @ORM\Column(type="string", length=300)
+   */
+  protected $salida;
+
+   
+}
+
