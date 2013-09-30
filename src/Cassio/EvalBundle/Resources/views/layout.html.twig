@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+{% set section = section is defined ? section : 'homepage' %}
+{% block body %}
+    {% block navbar %}
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container"><a>LIST  </a></div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}
+

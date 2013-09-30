@@ -33,8 +33,8 @@ class testCaseController extends Controller{
                 $em->persist($tc);
                 $em->flush();
             }
-        } 
-        return $this->render('CassioEvalBundle:Default:subir.html.twig', array('form' => $form->createView(),));
+        }
+       return $this->render('CassioEvalBundle:Default:forms.html.twig', array('form' => $form->createView(),));
     }
    
 //   
