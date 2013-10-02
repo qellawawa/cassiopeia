@@ -28,13 +28,14 @@ class testCaseController extends Controller{
             ->getForm();
         $form->handleRequest($request);
         if ($form->isValid()) {
-            if(!is_null($tc->getIdProblema())){
+            if(!is_null($tc->getIdProblema()))
+            {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($tc);
                 $em->flush();
             }
         }
-       return $this->render('CassioEvalBundle:Default:forms.html.twig', array('form' => $form->createView(),));
+       return $this->render('CassioEvalBundle:Default:subir.html.twig', array('form' => $form->createView(),));
     }
    
 //   

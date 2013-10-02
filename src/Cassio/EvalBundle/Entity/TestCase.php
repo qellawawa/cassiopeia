@@ -37,7 +37,9 @@ class TestCase
    */
   protected $salida;
 
-   /**
+   
+
+  /**
    * Get id
    *
    * @return integer 
@@ -59,6 +61,7 @@ class TestCase
   
       return $this;
   }
+
   /**
    * Get id_problema
    *
@@ -127,6 +130,7 @@ class TestCase
   
       return $this;
   }
+
   /**
    * Get salida
    *
@@ -136,8 +140,4 @@ class TestCase
   {
       return $this->salida;
   }
-//  public function actualizarbd(){
-//      $this->getIdProblema();
-//      $this->setEntrada($entrada);
-//  }
 }
