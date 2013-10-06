@@ -15,7 +15,6 @@ class EjecutorTest extends \PHPUnit_Framework_TestCase
     $comando = $ejecutor->getComandoPCompilar();
     echo $comando;
     $this->assertEquals("g++ codigo.cpp -o codigo.cpp.bin", $comando);
-
   }
 
   public function testCompilar()

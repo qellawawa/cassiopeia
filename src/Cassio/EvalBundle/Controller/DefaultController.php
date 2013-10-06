@@ -102,30 +102,7 @@ class DefaultController extends Controller
             'form' => $form->createView(),
         ));
     }
-  public function uploadAction(Request $request)
-  {
-    $document = new Document();
-    $form = $this->createFormBuilder($document)
-        ->add('name')
-        ->add('file')
-        ->add('enviar', 'submit')
-        ->getForm();
 
-    $form->handleRequest($request);
-
-    if ($form->isValid()) {
-        #$em = $this->getDoctrine()->getManager();
-        
-        $document->upload();
-
-        #$em->persist($document);
-        #$em->flush();
-
-        #return $this->redirect($this->generateUrl(...));
-    }
-
-    return $this->render('CassioEvalBundle:Default:upload.html.twig', array('form' => $form->createView()));
-  }
   public function showTCAction(Request $request)
   {
     $testcase = $this->getDoctrine()

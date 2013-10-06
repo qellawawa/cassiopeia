@@ -1,10 +1,10 @@
 <?php
 namespace Cassio\EvalBundle\Tests\Controller;
-namespace Cassio\EvalBundle\Tests\Controller\testCaseControllerTest;
 use Cassio\EvalBundle\Controller\testCaseController;
 use Cassio\EvalBundle\Entity\TestCase;
+use Symfony\Component\Form\Test\TypeTestCase;
 
-class testCaseControllerTest extends \PHPUnit_Framework_TestCase
+class testCaseControllerTest extends \PHPUnit_Framework_TestCase 
 {
   public function testTcSubida()
   {
@@ -15,7 +15,6 @@ class testCaseControllerTest extends \PHPUnit_Framework_TestCase
         'entrada' => 'ewrw',
         'salida' => 'wer',
     );
-    
     $model = new TestCase();
     $form = $this->factory->create($model);
     
@@ -26,10 +25,10 @@ class testCaseControllerTest extends \PHPUnit_Framework_TestCase
     $this->assertTrue($form->isSynchronized());
     $this->assertEquals($tc, $form->getData());
     
-    //$view = $form->createView();
-    //$children = $view->children;
-    //foreach (array_keys($formData) as $key) {
-      //    $this->assertArrayHasKey($key, $children);
-    //}
+//    $view = $form->createView();
+//    $children = $view->children;
+//    foreach (array_keys($formData) as $key) {
+//        $this->assertArrayHasKey($key, $children);
+//    }
   }
 }

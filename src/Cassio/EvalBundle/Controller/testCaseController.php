@@ -19,6 +19,8 @@ class testCaseController extends Controller{
         foreach ($problemas as $problema){
           $lista_prob[$problema->getId()] = $problema->getTitulo();
         }
+       // $formulario = new 
+        
         $form = $this->createFormBuilder($tc)
             ->add('id_problema', 'choice', array ('choices' => $lista_prob))
             ->add('titulo', 'text')    

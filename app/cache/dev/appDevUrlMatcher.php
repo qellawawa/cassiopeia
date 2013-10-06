@@ -133,19 +133,22 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // subirTc
-        if ($pathinfo === '/subirtc') {
-            return array (  '_controller' => 'Cassio\\EvalBundle\\Controller\\testCaseController::tcAction',  '_route' => 'subirTc',);
-        }
-
         // task
         if ($pathinfo === '/task') {
             return array (  '_controller' => 'Cassio\\EvalBundle\\Controller\\DefaultController::newAction',  '_route' => 'task',);
         }
 
-        // subir
-        if ($pathinfo === '/subir') {
-            return array (  '_controller' => 'Cassio\\EvalBundle\\Controller\\DefaultController::subirAction',  '_route' => 'subir',);
+        if (0 === strpos($pathinfo, '/subir')) {
+            // subir
+            if ($pathinfo === '/subir') {
+                return array (  '_controller' => 'Cassio\\EvalBundle\\Controller\\DefaultController::subirAction',  '_route' => 'subir',);
+            }
+
+            // subirTc
+            if ($pathinfo === '/subirtc') {
+                return array (  '_controller' => 'Cassio\\EvalBundle\\Controller\\testCaseController::tcAction',  '_route' => 'subirTc',);
+            }
+
         }
 
         // upload
