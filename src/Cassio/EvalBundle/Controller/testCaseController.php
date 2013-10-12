@@ -3,8 +3,6 @@ namespace Cassio\EvalBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Response;
 use Cassio\EvalBundle\Entity\TestCase;
 
 class testCaseController extends Controller{
@@ -19,7 +17,7 @@ class testCaseController extends Controller{
         foreach ($problemas as $problema){
           $lista_prob[$problema->getId()] = $problema->getTitulo();
         }
-       // $formulario = new 
+        // $formulario = new 
         
         $form = $this->createFormBuilder($tc)
             ->add('id_problema', 'choice', array ('choices' => $lista_prob))
