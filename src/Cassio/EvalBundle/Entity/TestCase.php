@@ -55,7 +55,8 @@ class TestCase
 
   /**
    * Set id_problema
-   *
+   *Fin de la conversación
+
    * @param integer $idProblema
    * @return TestCase
    */

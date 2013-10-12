@@ -4,12 +4,16 @@ namespace Cassio\EvalBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Cassio\EvalBundle\Entity\TestCase;
+use Cassio\EvalBundle\Entity\Tc_in;
+use Cassio\EvalBundle\Entity\Tc_out;
 
 class testCaseController extends Controller{
     
  public function tcAction(Request $request)
     {
         $tc = new TestCase();
+//        $tc_in = new Tc_in();
+//        $tc_out = new Tc_out();
         $repository = $this->getDoctrine()
           ->getRepository('CassioEvalBundle:Problema');
         $problemas = $repository->findAll();
@@ -22,8 +26,9 @@ class testCaseController extends Controller{
         $form = $this->createFormBuilder($tc)
             ->add('id_problema', 'choice', array ('choices' => $lista_prob))
             ->add('titulo', 'text')    
-            ->add('entrada', 'textarea')
-            ->add('salida', 'textarea')
+            ->add('puntaje', 'integer')    
+//            ->add('in', 'file')
+//            ->add('out', 'file')
             ->add('guardar', 'submit')
             ->getForm();
         $form->handleRequest($request);
@@ -31,13 +36,48 @@ class testCaseController extends Controller{
             if(!is_null($tc->getIdProblema()))
             {
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($tc);
+                $em->persist($tc,$tc_in,$tc_out);
                 $em->flush();
             }
         }
        return $this->render('CassioEvalBundle:Default:subir.html.twig', array('form' => $form->createView(),));
     }
    
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('username')
+            ->add('profile', new ProfileType(), array(
+                'attr' => array(
+                    'class' => 'well'
+                )
+            ))
+            ->add('addresses', 'collection', array(
+                'type'           => new AddressType(),
+                'label'          => 'Direcciones',
+                'by_reference'   => false,
+                'prototype_data' => new Address(),
+                'allow_delete'   => true,
+                'allow_add'      => true,
+                'attr'           => array(
+                    'class' => 'row addresses'
+                )
+            ))
+        ;
+    }
+ 
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'SMTC\MainBundle\Entity\User'
+        ));
+    }
+ 
+    public function getName()
+    {
+        return 'user';
+    }
+    
 //   
 //    public function showAction()
 //    {
